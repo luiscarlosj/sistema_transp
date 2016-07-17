@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+	
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<title>Calcula Valor Frete</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+	integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+	crossorigin="anonymous"/>
+</head>
+
+<body>
+
+     <div th:replace="principal :: header"></div>
+
+     <div class="panel panel-default" style="margin: 60px">
+
+		<div class="panel-heading">
+			<h1 class="panel-title">Calcula Valor Frete</h1>
+		</div>
+
+		<form class="form-inline" method="POST" th:object="${frete}" th:action="@{/fretes}" style="margin: 20px 0">
+			<div class="form-group" >
+			    <input type="text" class="form-control" value="${frete.codigo}" placeholder="Codigo" th:field="*{codigo}" readonly="readonly"/> 
+				<input type="text" class="form-control" value="${frete.descricao}" placeholder="Descricao" th:field="*{descricao}" readonly="readonly"/> 
+				<input type="text" class="form-control" value="${frete.pesoTotal}"  placeholder="PesoTotal" th:field="*{pesoTotal}" readonly="readonly"/>
+				<input type="text" class="form-control" value="${frete.cliente}"  placeholder="Cliente" th:field="*{cliente}" readonly="readonly"/> 
+				<input type="text" class="form-control" value="${frete.cidade}" placeholder="Cidade" th:field="*{cidade}" readonly="readonly"/>
+				<input type="text" class="form-control" value="${frete.valorFrete}" placeholder="ValorFrete" th:field="*{valorFrete}" readonly="readonly"/>
+				<button type="submit" class="btn btn-primary">Salvar Frete</button>
+			</div>
+		</form>
+
+        
+	</div>
+	
+</body>
+</html>

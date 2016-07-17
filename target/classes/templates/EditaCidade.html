@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+	
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<title>Edita Cidade</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+	integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+	crossorigin="anonymous"/>
+</head>
+
+<body>
+
+     <div th:replace="principal :: header"></div>
+
+     <div class="panel panel-default" style="margin: 60px">
+
+		<div class="panel-heading">
+			<h1 class="panel-title">Edita Cidade</h1>
+		</div>
+
+		<form class="form-inline" method="POST" th:object="${cidade}" th:action="@{/alteracidade}" style="margin: 20px 0">
+			<div class="form-group" >
+			    <input type="text" class="form-control" value="${cidade.id}" placeholder="Id" th:field="*{id}" readonly="readonly"/> 
+				<input type="text" class="form-control" value="${cidade.nome}" placeholder="Nome" th:field="*{nome}" /> 
+				<input type="text" class="form-control" value="${cidade.estado}" placeholder="Estado" th:field="*{estado}" /> 
+				<input type="text" class="form-control" value="${cidade.valorEntrega}" placeholder="Valor Entrega" th:field="*{valorEntrega}" />
+				<button type="submit" class="btn btn-primary">Alterar</button>
+			</div>
+		</form>
+
+        
+	</div>
+	
+</body>
+</html>

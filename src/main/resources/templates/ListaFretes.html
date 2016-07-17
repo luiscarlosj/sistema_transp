@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	>
+	
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<title>Lista de Fretes</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+	integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+	crossorigin="anonymous"/>
+</head>
+
+<body>
+
+	 <div th:replace="principal :: header"></div>
+
+     <div class="panel panel-default" style="margin: 60px">
+     
+		<div class="panel-heading">
+			<h1 class="panel-title">Fretes</h1>
+		</div>
+
+		<form class="form-inline" method="POST" th:object="${frete}" th:action="@{/calculavalor}" style="margin: 20px 0">
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Codigo" th:field="*{codigo}" /> 
+				<input type="text" class="form-control" placeholder="Descricao" th:field="*{descricao}" /> 
+				<input type="text" class="form-control" placeholder="Peso Total" th:field="*{pesoTotal}" /> 
+				<select id="disabledSelect" class="form-control" name="cliente" >
+					<option th:each="cliente : ${clientes}" th:value="${cliente.nome}" th:text="${cliente.nome}"></option>
+				</select> 
+				
+				<select class="form-control" name="cidade" >
+					<option th:each="cidade : ${cidades}" th:value="${cidade.nome}" th:text="${cidade.nome}"></option>
+				</select>
+				<input type="text" class="form-control" placeholder="Valor do Frete" readonly="readonly"/> 
+				<button type="submit" class="btn btn-primary">Adicionar</button>
+			</div>
+		</form>
+
+
+		<div class="panel-body">
+			<table class="table">
+				<thead>
+					<tr>
+					    <th>Codigo</th>
+						<th>Descricao</th>
+						<th>Peso Total</th>
+						<th>Cliente</th>
+						<th>Cidade</th>
+						<th>Valor do Frete</th>						
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="frete : ${fretes}">
+					    <td th:text="${frete.codigo}"></td>
+						<td th:text="${frete.descricao}"></td>
+						<td th:text="${frete.pesoTotal}"></td>
+						<td th:text="${frete.cliente}"></td>
+						<td th:text="${frete.cidade}"></td>
+						<td th:text="${frete.valorFrete}"></td>												
+						<td><a th:href="${'/excluifrete/' + frete.id}" >Excluir</a></td>
+						<td><a th:href="${'/editafrete/' + frete}" >Alterar</a></td>						
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

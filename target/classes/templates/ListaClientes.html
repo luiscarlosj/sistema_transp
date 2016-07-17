@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+	
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<title>Lista de Clientes</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+	integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+	crossorigin="anonymous"/>
+</head>
+
+<body>
+
+     <div th:replace="principal :: header"></div>
+
+     <div class="panel panel-default" style="margin: 60px">
+
+		<div class="panel-heading">
+			<h1 class="panel-title">Clientes</h1>
+		</div>
+
+		<form class="form-inline" method="POST" th:object="${cliente}" th:action="@{/clientes}" style="margin: 20px 0">
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Nome" th:field="*{nome}" /> 
+				<input type="text" class="form-control" placeholder="Endereco" th:field="*{endereco}" /> 
+				<input type="text" class="form-control" placeholder="Telefone" th:field="*{telefone}" />
+				<button type="submit" class="btn btn-primary">Adicionar</button>
+			</div>
+		</form>
+
+        <div class="panel-body">
+			<table class="table">
+				<thead>
+					<tr>
+					    <th>Nome</th>
+						<th>Endereco</th>
+						<th>Telefone</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="cliente : ${clientes}">
+					    <td th:text="${cliente.nome}">nome</td>
+						<td th:text="${cliente.endereco}">endereco</td>
+						<td th:text="${cliente.telefone}">telefone</td>
+						<td><a th:href="${'/excluicliente/' + cliente.id}" >Excluir</a></td>
+						<td><a th:href="${'/editacliente/' + cliente}" >Alterar</a></td>
+						
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	
+</body>
+</html>
