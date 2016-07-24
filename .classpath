@@ -28,6 +28,6 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/LUIS/Dropbox/Engenharia de Software II (2)/parte 2 - Padroes IoC e MVC/weld-servlet-2.3.2.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/LUIS/Dropbox/Sistemas de Informação - Engenharia de Software II/parte 2 - Padroes IoC e MVC/weld-servlet-2.3.2.Final.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

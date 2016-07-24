@@ -17,8 +17,6 @@ import com.sistema.transp.model.Frete;
 import com.sistema.transp.repository.Cidader;
 import com.sistema.transp.repository.Clienter;
 import com.sistema.transp.repository.Freter;
-import com.sistema.transp.services.Cidades;
-import com.sistema.transp.services.Clientes;
 import com.sistema.transp.services.Fretes;
 
 @Controller

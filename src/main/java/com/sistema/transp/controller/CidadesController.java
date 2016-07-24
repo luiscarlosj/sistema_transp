@@ -12,9 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.sistema.transp.model.Cidade;
-import com.sistema.transp.model.Cliente;
 import com.sistema.transp.repository.Cidader;
-import com.sistema.transp.services.Cidades;
 
 @Controller
 public class CidadesController {
